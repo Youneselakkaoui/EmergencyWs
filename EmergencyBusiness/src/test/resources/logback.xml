@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<property name="directory" value="${logDirectory}" />
+	<property name="appName" value="Emergency" />
+
+	<appender name="FILE_ROLLING_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <file>${directory}/mpp.log</file>
+	    <append>true</append>
+	    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      		<level>DEBUG</level>
+    	</filter>                                      
+	    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+	      <fileNamePattern>${directory}/mpp.%i.log.zip</fileNamePattern>
+	      <minIndex>1</minIndex>
+	      <maxIndex>20</maxIndex>
+	    </rollingPolicy>
+	    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+	      <maxFileSize>10MB</maxFileSize>
+	    </triggeringPolicy>
+	    <encoder>
+	      <pattern>[%-5p] [${appName}-%d{yyyy.MM.dd-HH:mm:ss}] [%logger{36}] [%X{ck}] [%m]%n</pattern>
+	    </encoder>
+  	</appender>
+	
+	<appender name="STARTUP_ROLLING_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <file>${directory}/startup.log</file>
+	    <append>true</append>                                     
+	    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+	      <fileNamePattern>${directory}/startup.%i.log.zip</fileNamePattern>
+	      <minIndex>1</minIndex>
+	      <maxIndex>20</maxIndex>
+	    </rollingPolicy>
+	    <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+	      <maxFileSize>10MB</maxFileSize>
+	    </triggeringPolicy>
+	    <encoder>
+	      <pattern>[%-5p] [${appName}-%d{yyyy.MM.dd-HH:mm:ss}] [%logger{36}] [%X{ck}] [%m]%n</pattern>
+	    </encoder>
+  	</appender>
+  	  	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<target>System.out</target>
+	    <encoder>
+			<pattern>[%-5p] [${appName}-%d{yyyy.MM.dd-HH:mm:ss}] [%X{ck}] [%m]%n</pattern>	    
+		</encoder>
+  	</appender>
+
+	
+	<logger name="com.appschallenge.emergency" level="ERROR" additivity="false">
+		<appender-ref ref="FILE_ROLLING_APPENDER" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<logger name="org" level="ERROR" additivity="false">
+		<appender-ref ref="STARTUP_ROLLING_APPENDER" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
+	<logger name="net" level="ERROR" additivity="false">
+		<appender-ref ref="STARTUP_ROLLING_APPENDER" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<root level="DEBUG">
+	    <appender-ref ref="FILE_ROLLING_APPENDER" />
+  		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
