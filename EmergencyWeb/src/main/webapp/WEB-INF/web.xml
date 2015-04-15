@@ -3,9 +3,6 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 	<display-name>EmergencyWeb</display-name>
-	<welcome-file-list>
-		<welcome-file>pages/index.html</welcome-file>
-	</welcome-file-list>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -24,7 +21,7 @@
 		<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>com.bnpp.dsibddf.mpp</param-value>
+			<param-value>com.appschallenge.emergency.web.service</param-value>
 		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
