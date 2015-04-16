@@ -23,7 +23,6 @@
 		<property name="persistenceXmlLocation" value="classpath:META-INF/database/persistence.xml" />
 		<property name="persistenceUnitName" value="emergencyPersistence" />
 		<property name="dataSource" ref="emergencyDS" />
-<!-- 		<property name="packagesToScan" value="org.appschallenge.emergency.business.*" /> -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 				<property name="showSql" value="true" />
@@ -31,25 +30,7 @@
 			</bean>
 		</property>
 	</bean>
-	<!-- <bean id="emergencyDS" class="org.springframework.jndi.JndiObjectFactoryBean" -->
-	<!-- scope="singleton"> -->
-	<!-- <property name="jndiName" value="java:comp/env/jdbc/emergencyDB" /> -->
-	<!-- <property name="resourceRef" value="true" /> -->
-	<!-- </bean> -->
-	<!-- <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean"> -->
-	<!-- <property name="persistenceUnitName" value="emergencyPersistence" /> -->
-	<!-- <property name="persistenceXmlLocation" value="classpath:META-INF/database/persistence.xml" 
-		/> -->
-	<!-- </bean> -->
-	<!-- Initialization for data source -->
-	<!-- <bean id="emergencyDS" class="org.apache.commons.dbcp.BasicDataSource" -->
-	<!-- destroy-method="close"> -->
-	<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" /> -->
-	<!-- <property name="url" value="jdbc:mysql://localhost:3306/emergency" 
-		/> -->
-	<!-- <property name="username" value="root" /> -->
-	<!-- <property name="password" value="0000" /> -->
-	<!-- </bean> -->
+
 
 	<bean id="emergencyDS"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -57,6 +38,15 @@
 		<property name="url" value="jdbc:mysql://localhost:3306/emergency" />
 		<property name="username" value="root" />
 		<property name="password" value="0000" />
+	</bean>
+
+	<bean id="dozer.UserMapper" class="org.dozer.DozerBeanMapper">
+		<property name="mappingFiles">
+			<list>
+				<value>META-INF/mapping/UserMapper.xml
+				</value>
+			</list>
+		</property>
 	</bean>
 
 </beans>

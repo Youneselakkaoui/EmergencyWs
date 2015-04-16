@@ -1,6 +1,7 @@
 package com.appschallenge.emergency.web.service;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -8,26 +9,27 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.appschallenge.emergency.business.entity.User;
-import com.appschallenge.emergency.business.service.ICreateUser;
+import com.appschallenge.emergency.business.dto.UserDTO;
+import com.appschallenge.emergency.business.service.IManageUser;
 
 @Component
 @Path("/emergency")
 public class EmergencyWS {
 
 	@Autowired
-	private ICreateUser creerUserService;
+	private IManageUser creerUserService;
 
-	/************************************ READ ************************************/
 	/**
-	 * Returns all resources (podcasts) from the database
+	 * Creates a user
 	 *
 	 * @return
 	 */
-	@GET
+	@POST
+	@Path("/createUser")
 	@Produces({ MediaType.APPLICATION_JSON })
-	public User createUser() {
-		return creerUserService.creerUser("0000");
+	@Consumes({ MediaType.APPLICATION_JSON })
+	public UserDTO createUser(final UserDTO userDTO) {
+		return creerUserService.creerUser(userDTO);
 	}
 
 }
