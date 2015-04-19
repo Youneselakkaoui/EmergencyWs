@@ -1,10 +1,13 @@
 package com.appschallenge.emergency.business.dto;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class UserDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class UserDTO extends EmergencyDTO {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -4456382937240505471L;
 
 	private String autresInfos;
 
