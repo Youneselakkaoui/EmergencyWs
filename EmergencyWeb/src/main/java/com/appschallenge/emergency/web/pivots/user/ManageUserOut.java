@@ -6,7 +6,7 @@ import com.appschallenge.emergency.business.dto.EmergencyAnomalieDTO;
 import com.appschallenge.emergency.business.dto.UserDTO;
 
 /**
- * Sortie de manageUser
+ * Sortie de manageUser <<<<<<< HEAD
  *
  * @author elmehdiharabida
  *
@@ -16,6 +16,7 @@ public class ManageUserOut implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = -6713281515507601984L;
+
 	/**
 	 * eventuelle anomalie
 	 */

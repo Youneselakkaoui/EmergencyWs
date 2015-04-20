@@ -15,6 +15,7 @@ public class ManageUserIn implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = -354734881571599956L;
+
 	/**
 	 * code fonction 0 pour creer et 1 pour update
 	 */
@@ -52,4 +53,5 @@ public class ManageUserIn implements Serializable {
 	// public void setLocale(Locale locale) {
 	// this.locale = locale;
 	// }
+
 }

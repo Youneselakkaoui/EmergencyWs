@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 public class EmergencyException extends Exception implements Serializable {
 
 	private static final ResourceBundle RESOURCE;
+
 	/**
 	 *
 	 */
