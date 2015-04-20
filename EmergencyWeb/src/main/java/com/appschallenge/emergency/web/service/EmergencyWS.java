@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.appschallenge.emergency.business.dto.EmergencyAnomalieDTO;
 import com.appschallenge.emergency.business.service.IManageUser;
+import com.appschallenge.emergency.business.util.EmergencyConstants;
 import com.appschallenge.emergency.business.util.EmergencyException;
 import com.appschallenge.emergency.web.pivots.user.ManageUserIn;
 import com.appschallenge.emergency.web.pivots.user.ManageUserOut;
@@ -20,7 +21,7 @@ import com.appschallenge.emergency.web.pivots.user.ManageUserOut;
 public class EmergencyWS {
 
 	@Autowired
-	private IManageUser creerUserService;
+	private IManageUser manageUserService;
 
 	/**
 	 * Creates a user
@@ -28,7 +29,7 @@ public class EmergencyWS {
 	 * @return
 	 */
 	@POST
-	@Path("/createUser")
+	@Path("/manageUser")
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Consumes({ MediaType.APPLICATION_JSON })
 	public ManageUserOut manageUser(final ManageUserIn manageUserIn) {
@@ -36,15 +37,18 @@ public class EmergencyWS {
 		try {
 			switch (manageUserIn.getCodeFonction()) {
 			case 0:
-				manageUserOut.setUserDTO(creerUserService
+				// creer user
+				manageUserOut.setUserDTO(manageUserService
 						.creerUser(manageUserIn.getUserDTO()));
 				break;
+
 			case 1:
-				manageUserOut.setUserDTO(creerUserService
-						.creerUser(manageUserIn.getUserDTO()));
+				// update user
+				manageUserOut.setUserDTO(manageUserService
+						.updateUser(manageUserIn.getUserDTO()));
 				break;
 			default:
-				throw new EmergencyException();
+				throw new EmergencyException(EmergencyConstants.USRCREA0001);
 			}
 		} catch (final EmergencyException e) {
 			final EmergencyAnomalieDTO anomalie = new EmergencyAnomalieDTO();

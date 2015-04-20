@@ -19,6 +19,11 @@ public class ManageUserIn implements Serializable {
 	 * code fonction 0 pour creer et 1 pour update
 	 */
 	private short codeFonction;
+	// A voir
+	// /**
+	// * locale
+	// */
+	// private Locale locale;
 	/**
 	 * Objet user a creer ou mettre a jour
 	 */
@@ -39,4 +44,12 @@ public class ManageUserIn implements Serializable {
 	public void setUserDTO(final UserDTO userDTO) {
 		this.userDTO = userDTO;
 	}
+
+	// public Locale getLocale() {
+	// return locale;
+	// }
+	//
+	// public void setLocale(Locale locale) {
+	// this.locale = locale;
+	// }
 }
