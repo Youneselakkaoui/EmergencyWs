@@ -1,12 +1,16 @@
 package com.appschallenge.emergency.web.pivots.user;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
+=======
+>>>>>>> origin/master
 import com.appschallenge.emergency.business.dto.EmergencyAnomalieDTO;
 import com.appschallenge.emergency.business.dto.UserDTO;
 
 /**
  * Sortie de manageUser
+<<<<<<< HEAD
  *
  * @author elmehdiharabida
  *
@@ -16,6 +20,13 @@ public class ManageUserOut implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = -6713281515507601984L;
+=======
+ * 
+ * @author elmehdiharabida
+ *
+ */
+public class ManageUserOut {
+>>>>>>> origin/master
 	/**
 	 * eventuelle anomalie
 	 */

@@ -1,15 +1,22 @@
 package com.appschallenge.emergency.business.util;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 import java.util.ResourceBundle;
 
 public class EmergencyException extends Exception implements Serializable {
 
 	private static final ResourceBundle RESOURCE;
+=======
+
+public class EmergencyException extends Exception implements Serializable {
+
+>>>>>>> origin/master
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 4998168297661625163L;
+<<<<<<< HEAD
 	static {
 		RESOURCE = ResourceBundle
 				.getBundle(EmergencyConstants.MESSAGE_ERREUR_FILE);
@@ -24,6 +31,11 @@ public class EmergencyException extends Exception implements Serializable {
 
 	}
 
+=======
+	private String exceptionCode;
+	private String exceptionMessage;
+
+>>>>>>> origin/master
 	public String getExceptionCode() {
 		return exceptionCode;
 	}
