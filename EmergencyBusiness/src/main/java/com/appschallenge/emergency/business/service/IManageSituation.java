@@ -9,6 +9,7 @@ public interface IManageSituation {
 	@Transactional
 	SituationDTO creerSituation(SituationDTO situation) throws EmergencyException;
 
+	SituationDTO findSituation(int  idSituation);
 	
 	@Transactional
 	SituationDTO updateSituation(SituationDTO situationDTO) throws EmergencyException;
