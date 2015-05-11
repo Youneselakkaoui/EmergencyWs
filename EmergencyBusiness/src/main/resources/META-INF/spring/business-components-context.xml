@@ -47,6 +47,20 @@
 			<list>
 				<value>META-INF/mapping/UserMapper.xml
 				</value>
+				<value>META-INF/mapping/SuviAlertePkMapper.xml
+				</value>
+				<value>META-INF/mapping/SuviAlerteMapper.xml
+				</value>
+				<value>META-INF/mapping/SituationMapper.xml
+				</value>
+				<value>META-INF/mapping/RecepteursSituationPKMapper.xml
+				</value>
+				<value>META-INF/mapping/RecepteursSituationMapper.xml
+				</value>
+				<value>META-INF/mapping/PieceJointeMapper.xml
+				</value>
+				<value>META-INF/mapping/AlerteMapper.xml
+				</value>
 			</list>
 		</property>
 	</bean>
