@@ -18,7 +18,7 @@ import com.appschallenge.emergency.web.pivots.recepteurssituation.ManageRecepteu
 
 
 @Component
-@Path("/emergency")
+@Path("/emergencyRecepetursSituation")
 public class EmergencyRecepteursSituationWS {
 
 	@Autowired

@@ -14,7 +14,7 @@ import com.appschallenge.emergency.business.util.EmergencyException;
 @Component
 public class ManageRecepteursSituationImpl implements IManageRecepteursSituation {
 	@Autowired
-	@Qualifier("dozer.RecepteursSituationMapper")
+	@Qualifier("dozer.Mapper")
 	Mapper mapper;
 
 	@Autowired

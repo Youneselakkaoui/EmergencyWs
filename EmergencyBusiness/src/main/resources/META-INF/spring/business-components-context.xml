@@ -42,7 +42,7 @@
 		<property name="password" value="${database.password}" />
 	</bean>
 	<!-- ************ Dozer configuration *********** -->
-	<bean id="dozer.UserMapper" class="org.dozer.DozerBeanMapper">
+	<bean id="dozer.Mapper" class="org.dozer.DozerBeanMapper">
 		<property name="mappingFiles">
 			<list>
 				<value>META-INF/mapping/UserMapper.xml

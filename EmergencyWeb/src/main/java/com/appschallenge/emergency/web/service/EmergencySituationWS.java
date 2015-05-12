@@ -18,7 +18,7 @@ import com.appschallenge.emergency.web.pivots.situation.ManageSituationOut;
 
 
 @Component
-@Path("/emergency")
+@Path("/emergencySituation")
 public class EmergencySituationWS {
 
 	@Autowired

@@ -14,7 +14,7 @@ import com.appschallenge.emergency.business.util.EmergencyException;
 @Component
 public class ManageSuiviAlerteImpl implements IManageSuiviAlerte {
 	@Autowired
-	@Qualifier("dozer.SuiviAlerteMapper")
+	@Qualifier("dozer.Mapper")
 	Mapper mapper;
 
 	@Autowired

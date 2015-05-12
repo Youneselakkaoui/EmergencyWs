@@ -14,7 +14,7 @@ import com.appschallenge.emergency.business.util.EmergencyException;
 @Component
 public class ManageSituationImpl implements IManageSituation {
 	@Autowired
-	@Qualifier("dozer.SituationMapper")
+	@Qualifier("dozer.Mapper")
 	Mapper mapper;
 
 	@Autowired

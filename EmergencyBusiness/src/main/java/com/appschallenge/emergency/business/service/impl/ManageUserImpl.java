@@ -14,7 +14,7 @@ import com.appschallenge.emergency.business.util.EmergencyException;
 @Component
 public class ManageUserImpl implements IManageUser {
 	@Autowired
-	@Qualifier("dozer.UserMapper")
+	@Qualifier("dozer.Mapper")
 	Mapper mapper;
 
 	@Autowired

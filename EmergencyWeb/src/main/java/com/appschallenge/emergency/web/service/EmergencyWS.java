@@ -17,7 +17,7 @@ import com.appschallenge.emergency.web.pivots.user.ManageUserIn;
 import com.appschallenge.emergency.web.pivots.user.ManageUserOut;
 
 @Component
-@Path("/emergency")
+@Path("/emergencyUser")
 public class EmergencyWS {
 
 	@Autowired

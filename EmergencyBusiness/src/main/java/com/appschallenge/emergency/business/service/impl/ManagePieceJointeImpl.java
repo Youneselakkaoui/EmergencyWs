@@ -14,7 +14,7 @@ import com.appschallenge.emergency.business.util.EmergencyException;
 @Component
 public class ManagePieceJointeImpl implements IManagePieceJointe {
 	@Autowired
-	@Qualifier("dozer.PieceJointeMapper")
+	@Qualifier("dozer.Mapper")
 	Mapper mapper;
 
 	@Autowired
