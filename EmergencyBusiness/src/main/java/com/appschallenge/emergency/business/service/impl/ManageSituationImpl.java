@@ -25,27 +25,29 @@ public class ManageSituationImpl implements IManageSituation {
 		final Situation situation = mapper.map(situationDTO, Situation.class);
 		situationDao.create(situation);
 
-		final SituationDTO situationDTOout = mapper.map(situation, SituationDTO.class);
+		final SituationDTO situationDTOout = mapper.map(situation,
+				SituationDTO.class);
 		return situationDTOout;
 	}
 
-
-	
 	@Override
 	public SituationDTO findSituation(final int idSituation) {
 
 		final Situation situation = situationDao.find(idSituation);
 
-		final SituationDTO situationDTOout = mapper.map(situation, SituationDTO.class);
+		final SituationDTO situationDTOout = mapper.map(situation,
+				SituationDTO.class);
 		return situationDTOout;
 	}
 
 	@Override
-	public SituationDTO updateSituation(final SituationDTO situationDTO) throws EmergencyException {
+	public SituationDTO updateSituation(final SituationDTO situationDTO)
+			throws EmergencyException {
 		final Situation situation = mapper.map(situationDTO, Situation.class);
 		situationDao.update(situation);
 
-		final SituationDTO situationDTOout = mapper.map(situation, SituationDTO.class);
+		final SituationDTO situationDTOout = mapper.map(situation,
+				SituationDTO.class);
 		return situationDTOout;
 	}
 

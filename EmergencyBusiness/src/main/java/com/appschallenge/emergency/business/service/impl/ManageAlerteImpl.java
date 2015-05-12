@@ -13,12 +13,11 @@ import com.appschallenge.emergency.business.util.EmergencyException;
 
 @Component
 public class ManageAlerteImpl implements IManageAlerte {
+	IAlerteDao alerteDao;
+
 	@Autowired
 	@Qualifier("dozer.Mapper")
 	Mapper mapper;
-
-	@Autowired
-	IAlerteDao alerteDao;
 
 	@Override
 	public AlerteDTO creerAlerte(final AlerteDTO alerteDTO) {
@@ -29,10 +28,9 @@ public class ManageAlerteImpl implements IManageAlerte {
 		return alerteDTOout;
 	}
 
-
-
 	@Override
-	public AlerteDTO updateAlerte(final AlerteDTO alerteDTO) throws EmergencyException {
+	public AlerteDTO updateAlerte(final AlerteDTO alerteDTO)
+			throws EmergencyException {
 		final Alerte alerte = mapper.map(alerteDTO, Alerte.class);
 		alerteDao.update(alerte);
 

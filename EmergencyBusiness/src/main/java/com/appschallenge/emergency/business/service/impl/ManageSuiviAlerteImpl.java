@@ -22,21 +22,24 @@ public class ManageSuiviAlerteImpl implements IManageSuiviAlerte {
 
 	@Override
 	public SuiviAlerteDTO creerSuiviAlerte(final SuiviAlerteDTO suiviAlerteDTO) {
-		final SuiviAlerte suiviAlerte = mapper.map(suiviAlerteDTO, SuiviAlerte.class);
+		final SuiviAlerte suiviAlerte = mapper.map(suiviAlerteDTO,
+				SuiviAlerte.class);
 		suiviAlerteDao.create(suiviAlerte);
 
-		final SuiviAlerteDTO suiviAlerteDTOout = mapper.map(suiviAlerte, SuiviAlerteDTO.class);
+		final SuiviAlerteDTO suiviAlerteDTOout = mapper.map(suiviAlerte,
+				SuiviAlerteDTO.class);
 		return suiviAlerteDTOout;
 	}
 
-
-
 	@Override
-	public SuiviAlerteDTO updateSuiviAlerte(final SuiviAlerteDTO suiviAlerteDTO) throws EmergencyException {
-		final SuiviAlerte suiviAlerte = mapper.map(suiviAlerteDTO, SuiviAlerte.class);
+	public SuiviAlerteDTO updateSuiviAlerte(final SuiviAlerteDTO suiviAlerteDTO)
+			throws EmergencyException {
+		final SuiviAlerte suiviAlerte = mapper.map(suiviAlerteDTO,
+				SuiviAlerte.class);
 		suiviAlerteDao.update(suiviAlerte);
 
-		final SuiviAlerteDTO suiviAlerteDTOout = mapper.map(suiviAlerte, SuiviAlerteDTO.class);
+		final SuiviAlerteDTO suiviAlerteDTOout = mapper.map(suiviAlerte,
+				SuiviAlerteDTO.class);
 		return suiviAlerteDTOout;
 	}
 

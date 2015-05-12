@@ -22,21 +22,24 @@ public class ManagePieceJointeImpl implements IManagePieceJointe {
 
 	@Override
 	public PieceJointeDTO creerPieceJointe(final PieceJointeDTO pieceJointeDTO) {
-		final PieceJointe pieceJointe = mapper.map(pieceJointeDTO, PieceJointe.class);
+		final PieceJointe pieceJointe = mapper.map(pieceJointeDTO,
+				PieceJointe.class);
 		pieceJointeDao.create(pieceJointe);
 
-		final PieceJointeDTO pieceJointeDTOout = mapper.map(pieceJointe, PieceJointeDTO.class);
+		final PieceJointeDTO pieceJointeDTOout = mapper.map(pieceJointe,
+				PieceJointeDTO.class);
 		return pieceJointeDTOout;
 	}
 
-
-
 	@Override
-	public PieceJointeDTO updatePieceJointe(final PieceJointeDTO pieceJointeDTO) throws EmergencyException {
-		final PieceJointe pieceJointe = mapper.map(pieceJointeDTO, PieceJointe.class);
+	public PieceJointeDTO updatePieceJointe(final PieceJointeDTO pieceJointeDTO)
+			throws EmergencyException {
+		final PieceJointe pieceJointe = mapper.map(pieceJointeDTO,
+				PieceJointe.class);
 		pieceJointeDao.update(pieceJointe);
 
-		final PieceJointeDTO pieceJointeDTOout = mapper.map(pieceJointe, PieceJointeDTO.class);
+		final PieceJointeDTO pieceJointeDTOout = mapper.map(pieceJointe,
+				PieceJointeDTO.class);
 		return pieceJointeDTOout;
 	}
 

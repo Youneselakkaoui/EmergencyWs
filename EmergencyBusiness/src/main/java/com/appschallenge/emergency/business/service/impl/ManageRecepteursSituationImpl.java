@@ -12,7 +12,8 @@ import com.appschallenge.emergency.business.service.IManageRecepteursSituation;
 import com.appschallenge.emergency.business.util.EmergencyException;
 
 @Component
-public class ManageRecepteursSituationImpl implements IManageRecepteursSituation {
+public class ManageRecepteursSituationImpl implements
+IManageRecepteursSituation {
 	@Autowired
 	@Qualifier("dozer.Mapper")
 	Mapper mapper;
@@ -21,21 +22,27 @@ public class ManageRecepteursSituationImpl implements IManageRecepteursSituation
 	IRecepteursSituationDao recepteursSituationDao;
 
 	@Override
-	public RecepteursSituationDTO creerRecepteursSituation(final RecepteursSituationDTO recepteursSituationDTO) {
-		final RecepteursSituation recepteursSituation = mapper.map(recepteursSituationDTO, RecepteursSituation.class);
+	public RecepteursSituationDTO creerRecepteursSituation(
+			final RecepteursSituationDTO recepteursSituationDTO) {
+		final RecepteursSituation recepteursSituation = mapper.map(
+				recepteursSituationDTO, RecepteursSituation.class);
 		recepteursSituationDao.create(recepteursSituation);
 
-		final RecepteursSituationDTO recepteursSituationDTOout = mapper.map(recepteursSituation, RecepteursSituationDTO.class);
+		final RecepteursSituationDTO recepteursSituationDTOout = mapper.map(
+				recepteursSituation, RecepteursSituationDTO.class);
 		return recepteursSituationDTOout;
 	}
 
-	
 	@Override
-	public RecepteursSituationDTO updateRecepteursSituation(final RecepteursSituationDTO recepteursSituationDTO) throws EmergencyException {
-		final RecepteursSituation recepteursSituation = mapper.map(recepteursSituationDTO, RecepteursSituation.class);
+	public RecepteursSituationDTO updateRecepteursSituation(
+			final RecepteursSituationDTO recepteursSituationDTO)
+					throws EmergencyException {
+		final RecepteursSituation recepteursSituation = mapper.map(
+				recepteursSituationDTO, RecepteursSituation.class);
 		recepteursSituationDao.update(recepteursSituation);
 
-		final RecepteursSituationDTO recepteursSituationDTOout = mapper.map(recepteursSituation, RecepteursSituationDTO.class);
+		final RecepteursSituationDTO recepteursSituationDTOout = mapper.map(
+				recepteursSituation, RecepteursSituationDTO.class);
 		return recepteursSituationDTOout;
 	}
 
