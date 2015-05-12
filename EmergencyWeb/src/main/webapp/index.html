@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Emergency WS - Tester</title>
+<script type="text/javascript" language="javascript">
+	var request;
+	function createXMLHttpRequest() {
+		try {
+			return new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e) {
+		}
+		try {
+			return new ActiveXObject("Microsoft.XMLHTTP");
+		} catch (e) {
+		}
+		try {
+			return new XMLHttpRequest();
+		} catch (e) {
+		}
+		try {
+			return window.createRequest();
+		} catch (e) {
+		}
+
+		alert("XMLHttpRequest not supported");
+		return null;
+
+	}
+	function sendMessage() {
+		var currenturl = self.location.href;
+		var targeturl;
+		targeturl = "./service/emergencyUser/manageUser";
+		var string_of_xml_data = document.getElementById("jsonMessage").value;
+		request = createXMLHttpRequest();
+		request.onreadystatechange = showResult;
+		request.open("POST", targeturl, true);
+		request.setRequestHeader("Content-Type", "application/json");
+		request.send(string_of_xml_data);
+	}
+
+	function showResult() {
+
+		if (request.readyState == 4) { // readyState, see below
+			document.getElementById("jsonMessageResponse").value = request.responseText
+		}
+	}
+
+	function clearText(objectId) {
+		document.getElementById(objectId).value = '';
+	}
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Request Message</th>
+		</tr>
+
+		<tr>
+			<td><textarea id="jsonMessage" name="jsonMessage" cols="100"
+					rows="12">
+					{"codeFonction":2,"userDTO":{"cholesterol":0,"diabete":0,"groupSanguin":0,"sexe":0,"telephone":"000000"}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><input type="button" value="Send"
+				onclick="sendMessage()" /></td>
+		</tr>
+		<tr>
+			<td></td>
+		</tr>
+		<tr>
+			<th>Response Message</th>
+		</tr>
+		<tr>
+			<td><textarea id="jsonMessageResponse" cols="100" rows="12"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><input type="button" value="Clear Response"
+				onclick="clearText('jsonMessageResponse');" />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
