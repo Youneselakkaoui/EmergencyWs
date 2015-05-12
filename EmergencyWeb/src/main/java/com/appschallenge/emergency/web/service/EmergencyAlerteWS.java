@@ -10,42 +10,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.appschallenge.emergency.business.dto.EmergencyAnomalieDTO;
+import com.appschallenge.emergency.business.service.IManageAlerte;
 import com.appschallenge.emergency.business.service.IManageUser;
 import com.appschallenge.emergency.business.util.EmergencyConstants;
 import com.appschallenge.emergency.business.util.EmergencyException;
+import com.appschallenge.emergency.web.pivots.alerte.ManageAlerteIn;
+import com.appschallenge.emergency.web.pivots.alerte.ManageAlerteOut;
 import com.appschallenge.emergency.web.pivots.user.ManageUserIn;
 import com.appschallenge.emergency.web.pivots.user.ManageUserOut;
 
 @Component
 @Path("/emergency")
-public class EmergencyWS {
+public class EmergencyAlerteWS {
 
 	@Autowired
-	private IManageUser manageUserService;
+	private IManageAlerte manageAlerteService;
 
 	/**
-	 * Creates a user
+	 * Creates a Alerte
 	 *
 	 * @return
 	 */
 	@POST
-	@Path("/manageUser")
+	@Path("/manageAlerte")
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Consumes({ MediaType.APPLICATION_JSON })
-	public ManageUserOut manageUser(final ManageUserIn manageUserIn) {
-		final ManageUserOut manageUserOut = new ManageUserOut();
+	public ManageAlerteOut manageAlerte(final ManageAlerteIn manageAlerteIn) {
+		final ManageAlerteOut manageAlerteOut = new ManageAlerteOut();
 		try {
-			switch (manageUserIn.getCodeFonction()) {
+			switch (manageAlerteIn.getCodeFonction()) {
 			case 0:
-				// creer user
-				manageUserOut.setUserDTO(manageUserService
-						.creerUser(manageUserIn.getUserDTO()));
+				// creer Alerte
+				manageAlerteOut.setAlerteDTO(manageAlerteService
+						.creerAlerte(manageAlerteIn.getAlerteDTO()));
 				break;
 
 			case 1:
-				// update user
-				manageUserOut.setUserDTO(manageUserService
-						.updateUser(manageUserIn.getUserDTO()));
+				// update Alerte
+				manageAlerteOut.setAlerteDTO(manageAlerteService
+						.updateAlerte(manageAlerteIn.getAlerteDTO()));
 				break;
 			default:
 				throw new EmergencyException(EmergencyConstants.USRCREA0001);
@@ -54,9 +57,9 @@ public class EmergencyWS {
 			final EmergencyAnomalieDTO anomalie = new EmergencyAnomalieDTO();
 			anomalie.setCodeAnomalie(e.getExceptionCode());
 			anomalie.setLibelleAnomalie(e.getExceptionMessage());
-			manageUserOut.setAnomalie(anomalie);
+			manageAlerteOut.setAnomalie(anomalie);
 		}
-		return manageUserOut;
+		return manageAlerteOut;
 	}
 
 }

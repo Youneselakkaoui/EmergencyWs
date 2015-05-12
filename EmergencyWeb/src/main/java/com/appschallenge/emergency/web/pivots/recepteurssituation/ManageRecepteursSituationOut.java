@@ -1,18 +1,17 @@
-package com.appschallenge.emergency.web.pivots.situation;
+package com.appschallenge.emergency.web.pivots.recepteurssituation;
 
 import java.io.Serializable;
 
 import com.appschallenge.emergency.business.dto.EmergencyAnomalieDTO;
-import com.appschallenge.emergency.business.dto.SituationDTO;
-import com.appschallenge.emergency.business.dto.UserDTO;
+import com.appschallenge.emergency.business.dto.RecepteursSituationDTO;
 
 /**
- * Sortie de manageUser
+ * Sortie de manageRecepteursSituation
  *
  * @author elmehdiharabida
  *
  */
-public class ManageSituationOut implements Serializable {
+public class ManageRecepteursSituationOut implements Serializable {
     /**
      *
      */
@@ -24,22 +23,22 @@ public class ManageSituationOut implements Serializable {
     /**
      * Donnees utilisateur
      */
-    private SituationDTO situationDTO;
+    private RecepteursSituationDTO recepteursSituationDTO;
     
     public EmergencyAnomalieDTO getAnomalie() {
         return anomalie;
     }
     
-    public SituationDTO getSituationDTO() {
-        return situationDTO;
+    public RecepteursSituationDTO getRecepteursSituationDTO() {
+        return recepteursSituationDTO;
     }
     
     public void setAnomalie(final EmergencyAnomalieDTO anomalie) {
         this.anomalie = anomalie;
     }
     
-    public void setSituationDTO(final SituationDTO situationDTO) {
-        this.situationDTO = situationDTO;
+    public void setRecepteursSituationDTO(final RecepteursSituationDTO recepteursSituationDTO) {
+        this.recepteursSituationDTO = recepteursSituationDTO;
     }
     
 }

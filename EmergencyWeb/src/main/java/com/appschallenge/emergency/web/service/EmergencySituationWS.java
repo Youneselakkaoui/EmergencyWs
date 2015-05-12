@@ -10,42 +10,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.appschallenge.emergency.business.dto.EmergencyAnomalieDTO;
-import com.appschallenge.emergency.business.service.IManageUser;
+import com.appschallenge.emergency.business.service.IManageSituation;
 import com.appschallenge.emergency.business.util.EmergencyConstants;
 import com.appschallenge.emergency.business.util.EmergencyException;
-import com.appschallenge.emergency.web.pivots.user.ManageUserIn;
-import com.appschallenge.emergency.web.pivots.user.ManageUserOut;
+import com.appschallenge.emergency.web.pivots.situation.ManageSituationIn;
+import com.appschallenge.emergency.web.pivots.situation.ManageSituationOut;
+
 
 @Component
 @Path("/emergency")
-public class EmergencyWS {
+public class EmergencySituationWS {
 
 	@Autowired
-	private IManageUser manageUserService;
+	private IManageSituation manageSituationService;
 
 	/**
-	 * Creates a user
+	 * Creates a Situation
 	 *
 	 * @return
 	 */
 	@POST
-	@Path("/manageUser")
+	@Path("/manageSituation")
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Consumes({ MediaType.APPLICATION_JSON })
-	public ManageUserOut manageUser(final ManageUserIn manageUserIn) {
-		final ManageUserOut manageUserOut = new ManageUserOut();
+	public ManageSituationOut manageSituation(final ManageSituationIn manageSituationIn) {
+		final ManageSituationOut manageSituationOut = new ManageSituationOut();
 		try {
-			switch (manageUserIn.getCodeFonction()) {
+			switch (manageSituationIn.getCodeFonction()) {
 			case 0:
-				// creer user
-				manageUserOut.setUserDTO(manageUserService
-						.creerUser(manageUserIn.getUserDTO()));
+				// creer Situation
+				manageSituationOut.setSituationDTO(manageSituationService
+						.creerSituation(manageSituationIn.getSituationDTO()));
 				break;
 
 			case 1:
-				// update user
-				manageUserOut.setUserDTO(manageUserService
-						.updateUser(manageUserIn.getUserDTO()));
+				// update Situation
+				manageSituationOut.setSituationDTO(manageSituationService
+						.updateSituation(manageSituationIn.getSituationDTO()));
 				break;
 			default:
 				throw new EmergencyException(EmergencyConstants.USRCREA0001);
@@ -54,9 +55,9 @@ public class EmergencyWS {
 			final EmergencyAnomalieDTO anomalie = new EmergencyAnomalieDTO();
 			anomalie.setCodeAnomalie(e.getExceptionCode());
 			anomalie.setLibelleAnomalie(e.getExceptionMessage());
-			manageUserOut.setAnomalie(anomalie);
+			manageSituationOut.setAnomalie(anomalie);
 		}
-		return manageUserOut;
+		return manageSituationOut;
 	}
 
 }

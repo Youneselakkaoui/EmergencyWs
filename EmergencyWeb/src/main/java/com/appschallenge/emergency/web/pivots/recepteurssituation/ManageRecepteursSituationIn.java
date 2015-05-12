@@ -1,9 +1,9 @@
-package com.appschallenge.emergency.web.pivots.user;
+package com.appschallenge.emergency.web.pivots.recepteurssituation;
 
 
 import java.io.Serializable;
 
-import com.appschallenge.emergency.business.dto.UserDTO;
+import com.appschallenge.emergency.business.dto.RecepteursSituationDTO;
 
 /**
  * Entree de manageUser
@@ -11,7 +11,7 @@ import com.appschallenge.emergency.business.dto.UserDTO;
  * @author elmehdiharabida
  *
  */
-public class ManageUserIn implements Serializable {
+public class ManageRecepteursSituationIn implements Serializable {
     /**
      *
      */
@@ -27,24 +27,24 @@ public class ManageUserIn implements Serializable {
     // */
     // private Locale locale;
     /**
-     * Objet user a creer ou mettre a jour
+     * Objet RecepteursSituation a creer ou mettre a jour
      */
-    private UserDTO userDTO;
+    private RecepteursSituationDTO recepteursSituationDTO;
     
     public short getCodeFonction() {
         return codeFonction;
     }
     
-    public UserDTO getUserDTO() {
-        return userDTO;
+    public RecepteursSituationDTO getRecepteursSituationDTO() {
+        return recepteursSituationDTO;
     }
     
     public void setCodeFonction(final short codeFonction) {
         this.codeFonction = codeFonction;
     }
     
-    public void setUserDTO(final UserDTO userDTO) {
-        this.userDTO = userDTO;
+    public void setRecepteursSituationDTO(final RecepteursSituationDTO recepteursSituationDTO) {
+        this.recepteursSituationDTO = recepteursSituationDTO;
     }
     
  
