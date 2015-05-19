@@ -47,9 +47,9 @@
 			<list>
 				<value>META-INF/mapping/UserMapper.xml
 				</value>
-				<value>META-INF/mapping/SuviAlertePkMapper.xml
+				<value>META-INF/mapping/SuiviAlertePKMapper.xml
 				</value>
-				<value>META-INF/mapping/SuviAlerteMapper.xml
+				<value>META-INF/mapping/SuiviAlerteMapper.xml
 				</value>
 				<value>META-INF/mapping/SituationMapper.xml
 				</value>

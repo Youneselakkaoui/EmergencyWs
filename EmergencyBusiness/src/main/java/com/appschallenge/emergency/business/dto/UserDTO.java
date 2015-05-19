@@ -17,6 +17,8 @@ public class UserDTO extends EmergencyDTO {
 
 	private short diabete;
 
+	private String gcmDeviceId;
+
 	private short groupSanguin;
 
 	private String nom;
@@ -97,6 +99,14 @@ public class UserDTO extends EmergencyDTO {
 
 	public void setTelephone(final String telephone) {
 		this.telephone = telephone;
+	}
+
+	public String getGcmDeviceId() {
+		return gcmDeviceId;
+	}
+
+	public void setGcmDeviceId(String gcmDeviceId) {
+		this.gcmDeviceId = gcmDeviceId;
 	}
 
 }
