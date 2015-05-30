@@ -6,7 +6,7 @@
 	<property name="appName" value="Emergency" />
 
 	<appender name="FILE_ROLLING_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
-	    <file>${directory}/mpp.log</file>
+	    <file>${directory}/emergency.log</file>
 	    <append>true</append>
 	    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
       		<level>DEBUG</level>
