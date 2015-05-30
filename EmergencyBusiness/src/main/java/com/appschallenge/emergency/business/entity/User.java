@@ -1,6 +1,7 @@
 package com.appschallenge.emergency.business.entity;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +35,9 @@ public class User implements Serializable {
 
 	private short diabete;
 
+	@Column(name = "digits_id")
+	private BigInteger digitsId;
+
 	@Column(name = "gcm_device_id")
 	private String gcmDeviceId;
 
@@ -46,12 +50,12 @@ public class User implements Serializable {
 
 	@OneToMany(mappedBy = "user")
 	private List<RecepteursSituation> recepteursSituations;
+
 	private short sexe;
 
 	// bi-directional many-to-one association to RecepteursSituation
 	@OneToMany(mappedBy = "user")
 	private List<Situation> situations;
-
 	@OneToMany(mappedBy = "user")
 	private List<SuiviAlerte> suiviAlertes;
 
@@ -99,6 +103,10 @@ public class User implements Serializable {
 
 	public short getDiabete() {
 		return this.diabete;
+	}
+
+	public BigInteger getDigitsId() {
+		return digitsId;
 	}
 
 	public String getGcmDeviceId() {
@@ -173,6 +181,10 @@ public class User implements Serializable {
 
 	public void setDiabete(final short diabete) {
 		this.diabete = diabete;
+	}
+
+	public void setDigitsId(final BigInteger digitsId) {
+		this.digitsId = digitsId;
 	}
 
 	public void setGcmDeviceId(final String gcmDeviceId) {

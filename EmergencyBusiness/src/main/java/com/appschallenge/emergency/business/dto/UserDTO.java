@@ -1,5 +1,6 @@
 package com.appschallenge.emergency.business.dto;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 public class UserDTO extends EmergencyDTO {
@@ -16,6 +17,8 @@ public class UserDTO extends EmergencyDTO {
 	private Date dateNaissance;
 
 	private short diabete;
+
+	private BigInteger digitsId;
 
 	private String gcmDeviceId;
 
@@ -43,6 +46,14 @@ public class UserDTO extends EmergencyDTO {
 
 	public short getDiabete() {
 		return this.diabete;
+	}
+
+	public BigInteger getDigitsId() {
+		return digitsId;
+	}
+
+	public String getGcmDeviceId() {
+		return gcmDeviceId;
 	}
 
 	public short getGroupSanguin() {
@@ -81,6 +92,14 @@ public class UserDTO extends EmergencyDTO {
 		this.diabete = diabete;
 	}
 
+	public void setDigitsId(final BigInteger digitsId) {
+		this.digitsId = digitsId;
+	}
+
+	public void setGcmDeviceId(final String gcmDeviceId) {
+		this.gcmDeviceId = gcmDeviceId;
+	}
+
 	public void setGroupSanguin(final short groupSanguin) {
 		this.groupSanguin = groupSanguin;
 	}
@@ -99,14 +118,6 @@ public class UserDTO extends EmergencyDTO {
 
 	public void setTelephone(final String telephone) {
 		this.telephone = telephone;
-	}
-
-	public String getGcmDeviceId() {
-		return gcmDeviceId;
-	}
-
-	public void setGcmDeviceId(String gcmDeviceId) {
-		this.gcmDeviceId = gcmDeviceId;
 	}
 
 }

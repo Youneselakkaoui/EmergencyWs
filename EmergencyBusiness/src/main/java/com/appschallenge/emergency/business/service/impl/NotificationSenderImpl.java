@@ -17,24 +17,30 @@ import com.appschallenge.emergency.business.dto.AlerteDTO;
 import com.appschallenge.emergency.business.dto.NotificationDTO;
 import com.appschallenge.emergency.business.dto.UserDTO;
 import com.appschallenge.emergency.business.service.INotificationSender;
+import com.appschallenge.emergency.business.util.EmergencyConstants;
+import com.google.gson.Gson;
 
 @Component
 public class NotificationSenderImpl implements INotificationSender {
 
-	private NotificationDTO buildNotification(final List<UserDTO> users,
+	private String buildNotification(final List<UserDTO> users,
 			final AlerteDTO alerte) {
 		final NotificationDTO notification = new NotificationDTO();
 		for (final UserDTO user : users) {
 			notification.getRegistration_ids().add(user.getGcmDeviceId());
 		}
-
-		return notification;
+		notification.getData().setNotificatioType(
+				EmergencyConstants.NOTIFICATION_ALERTE);
+		notification.getData().setRequestObjectId(
+				String.valueOf(alerte.getIdAlerte()));
+		final Gson jsonMaker = new Gson();
+		return jsonMaker.toJson(notification);
 	}
 
 	@Override
 	public void sendNotification(final List<UserDTO> users,
 			final AlerteDTO alerte) {
-		final NotificationDTO notification = buildNotification(users, alerte);
+		final String jsonRequest = buildNotification(users, alerte);
 		try {
 
 			final URL url = new URL("https://android.googleapis.com//gcm/send");
@@ -45,11 +51,13 @@ public class NotificationSenderImpl implements INotificationSender {
 			conn.setRequestProperty("Content-Type", "application/json");
 			conn.setRequestProperty("Authorization",
 					"key=AIzaSyBsz95tNNCthHl19-q98xRmRqPDuMBZb0g");
+			// final JsonObject notificationToSend = new JsonObject();
 
-			final String input = "{\"registration_ids\" : [\"APA91bEwYi1XroVhR0QUygYErhHWLBOtMtz9eO8XfiphBnwCO42bx-p1yUWwAYd6zp19I-zjwbRsL5nW4YT5bOId-_73bW6WvJQLLKwCla0dExPk8lsk9Rn59Y5qFVHTgWpyVfEJ58DkaRRShlFuW22_M7yH76Sz7A\"],\"data\" : {\"Nick\" : \"Mario\",\"Text\" : \"great match!\",\"Room\" : \"PortugalVSDenmark\",},}";
+			// final String input =
+			// "{\"registration_ids\" : [\"APA91bEwYi1XroVhR0QUygYErhHWLBOtMtz9eO8XfiphBnwCO42bx-p1yUWwAYd6zp19I-zjwbRsL5nW4YT5bOId-_73bW6WvJQLLKwCla0dExPk8lsk9Rn59Y5qFVHTgWpyVfEJ58DkaRRShlFuW22_M7yH76Sz7A\"],\"data\" : {\"Nick\" : \"Mario\",\"Text\" : \"great match!\",\"Room\" : \"PortugalVSDenmark\",},}";
 
 			final OutputStream os = conn.getOutputStream();
-			os.write(input.getBytes());
+			os.write(jsonRequest.getBytes());
 			os.flush();
 
 			if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {

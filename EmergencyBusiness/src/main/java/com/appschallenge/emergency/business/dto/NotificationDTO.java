@@ -3,8 +3,6 @@ package com.appschallenge.emergency.business.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.appschallenge.emergency.business.entity.Alerte;
-
 /**
  * Objet notification a envoyer au sevice GCM
  *
@@ -12,21 +10,24 @@ import com.appschallenge.emergency.business.entity.Alerte;
  *
  */
 public class NotificationDTO {
-	private Alerte data;
+	private Data data;
 	private List<String> registration_ids;
 
-	public Alerte getData() {
+	public Data getData() {
+		if (data == null) {
+			data = new Data();
+		}
 		return data;
 	}
 
 	public List<String> getRegistration_ids() {
 		if (registration_ids == null) {
-			return new ArrayList<String>();
+			registration_ids = new ArrayList<String>();
 		}
 		return registration_ids;
 	}
 
-	public void setData(final Alerte data) {
+	public void setData(final Data data) {
 		this.data = data;
 	}
 

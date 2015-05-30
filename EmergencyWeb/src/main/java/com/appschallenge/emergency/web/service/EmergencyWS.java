@@ -56,6 +56,7 @@ public class EmergencyWS {
 			anomalie.setLibelleAnomalie(e.getExceptionMessage());
 			manageUserOut.setAnomalie(anomalie);
 		}
+
 		return manageUserOut;
 	}
 
