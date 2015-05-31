@@ -61,6 +61,8 @@
 				</value>
 				<value>META-INF/mapping/AlerteMapper.xml
 				</value>
+				<value>META-INF/mapping/ReceptAlerteMapper.xml
+				</value>
 			</list>
 		</property>
 	</bean>

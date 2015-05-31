@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -14,6 +15,7 @@ import javax.net.ssl.HttpsURLConnection;
 import org.springframework.stereotype.Component;
 
 import com.appschallenge.emergency.business.dto.AlerteDTO;
+import com.appschallenge.emergency.business.dto.Data;
 import com.appschallenge.emergency.business.dto.NotificationDTO;
 import com.appschallenge.emergency.business.dto.UserDTO;
 import com.appschallenge.emergency.business.service.INotificationSender;
@@ -41,6 +43,11 @@ public class NotificationSenderImpl implements INotificationSender {
 	public void sendNotification(final List<UserDTO> users,
 			final AlerteDTO alerte) {
 		final String jsonRequest = buildNotification(users, alerte);
+		sendNotification(jsonRequest);
+
+	}
+
+	private void sendNotification(final String jsonRequest) {
 		try {
 
 			final URL url = new URL("https://android.googleapis.com//gcm/send");
@@ -85,7 +92,21 @@ public class NotificationSenderImpl implements INotificationSender {
 			e.printStackTrace();
 
 		}
+	}
 
+	@Override
+	public void sendReceiptConfirmation(final UserDTO demandeur,
+			final UserDTO recepteur) {
+		final NotificationDTO notification = new NotificationDTO();
+		final List<String> emetteurGCMId = new ArrayList<String>();
+		emetteurGCMId.add(demandeur.getGcmDeviceId());
+		notification.setRegistration_ids(emetteurGCMId);
+		notification.setData(new Data());
+		notification.getData().setNotificatioType(
+				EmergencyConstants.NOTIFICATION_AR_ALERTE);
+		notification.getData().setRequestObjectId(recepteur.getTelephone());
+		final Gson jsonMaker = new Gson();
+		sendNotification(jsonMaker.toJson(notification));
 	}
 
 }

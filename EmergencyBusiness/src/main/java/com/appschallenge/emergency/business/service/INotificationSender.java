@@ -8,4 +8,6 @@ import com.appschallenge.emergency.business.dto.UserDTO;
 public interface INotificationSender {
 	void sendNotification(List<UserDTO> users, AlerteDTO alerte);
 
+	void sendReceiptConfirmation(UserDTO demandeur, UserDTO recepteur);
+
 }
