@@ -9,7 +9,8 @@ public interface IManageUser {
 	@Transactional
 	UserDTO creerUser(UserDTO user) throws EmergencyException;
 
-	UserDTO findUser(String telephone);
+	@Transactional
+	UserDTO findUser(String telephone) throws EmergencyException;
 
 	@Transactional
 	UserDTO updateUser(UserDTO userDTO) throws EmergencyException;

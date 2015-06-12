@@ -10,7 +10,7 @@ public class SituationDTO extends EmergencyDTO {
 
 	private short piecesJointes;
 
-	private List<RecepteursSituationDTO> recepteursSituations;
+	private List<String> recepteursSituations;
 
 	private String titre;
 
@@ -30,7 +30,7 @@ public class SituationDTO extends EmergencyDTO {
 		return this.piecesJointes;
 	}
 
-	public List<RecepteursSituationDTO> getRecepteursSituations() {
+	public List<String> getRecepteursSituations() {
 		return this.recepteursSituations;
 	}
 
@@ -58,8 +58,7 @@ public class SituationDTO extends EmergencyDTO {
 		this.piecesJointes = piecesJointes;
 	}
 
-	public void setRecepteursSituations(
-			final List<RecepteursSituationDTO> recepteursSituations) {
+	public void setRecepteursSituations(final List<String> recepteursSituations) {
 		this.recepteursSituations = recepteursSituations;
 	}
 

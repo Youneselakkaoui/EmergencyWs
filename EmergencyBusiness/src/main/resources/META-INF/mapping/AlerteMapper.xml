@@ -8,8 +8,129 @@
 		</class-a>
 		<class-b>com.appschallenge.emergency.business.dto.AlerteDTO
 		</class-b>
-<!-- 		<field> -->
-<!-- 		</field> -->
+		<field>
+			<a>idAlerte</a>
+			<b>idAlerte</b>
+		</field>
+		<field>
+			<a>dateEnvoi</a>
+			<b>dateEnvoi</b>
+		</field>
+		<field>
+			<a>localisationEmX</a>
+			<b>localisationEmX</b>
+		</field>
+		<field>
+			<a>localisationEmY</a>
+			<b>localisationEmY</b>
+		</field>
+		<field>
+			<a>statut</a>
+			<b>statut</b>
+		</field>
+		<field>
+			<a>situation</a>
+			<b>situation</b>
+		</field>
 	</mapping>
+
+	<mapping map-null="false">
+		<class-a>com.appschallenge.emergency.business.entity.Situation
+		</class-a>
+		<class-b>com.appschallenge.emergency.business.dto.SituationDTO
+		</class-b>
+		<field>
+			<a>idSituation</a>
+			<b>idSituation</b>
+		</field>
+		<field>
+			<a>message</a>
+			<b>message</b>
+		</field>
+		<field>
+			<a>piecesJointes</a>
+			<b>piecesJointes</b>
+		</field>
+		<field>
+			<a>titre</a>
+			<b>titre</b>
+		</field>
+		<field>
+			<a>typeEnvoi</a>
+			<b>typeEnvoi</b>
+		</field>
+		<field>
+			<a>user</a>
+			<b>user</b>
+		</field>
+		<field-exclude>
+			<a>recepteursSituations</a>
+			<b>recepteursSituations</b>
+		</field-exclude>
+		<!-- <field> -->
+		<!-- <a>recepteursSituations</a> -->
+		<!-- <b>recepteursSituations</b> -->
+		<!-- </field> -->
+	</mapping>
+
+	<!-- <mapping map-null="false"> -->
+	<!-- <class-a>com.appschallenge.emergency.business.entity.User -->
+	<!-- </class-a> -->
+	<!-- <class-b>com.appschallenge.emergency.business.dto.UserDTO -->
+	<!-- </class-b> -->
+	<!-- <field> -->
+	<!-- <a>autresInfos</a> -->
+	<!-- <b>autresInfos</b> -->
+	<!-- </field> -->
+	<!-- <field> -->
+	<!-- <a>cholesterol</a> -->
+	<!-- <b>cholesterol</b> -->
+	<!-- </field> -->
+	<!-- <field> -->
+	<!-- <a>dateNaissance</a> -->
+	<!-- <b>dateNaissance</b> -->
+	<!-- </field> -->
+	<!-- <field> -->
+	<!-- <a>diabete</a> -->
+	<!-- <b>diabete</b> -->
+	<!-- </field> -->
+	<!-- <field> -->
+	<!-- <a>gcmDeviceId</a> -->
+	<!-- <b>gcmDeviceId</b> -->
+	<!-- </field> -->
+	<!-- <field> -->
+	<!-- <a>groupSanguin</a> -->
+	<!-- <b>groupSanguin</b> -->
+	<!-- </field> -->
+	<!-- <field> -->
+	<!-- <a>nom</a> -->
+	<!-- <b>nom</b> -->
+	<!-- </field> -->
+	<!-- <field> -->
+	<!-- <a>prenom</a> -->
+	<!-- <b>prenom</b> -->
+	<!-- </field> -->
+	<!-- </mapping> -->
+	<!-- <mapping map-null="false"> -->
+	<!-- <class-a>com.appschallenge.emergency.business.entity.RecepteursSituation -->
+	<!-- </class-a> -->
+	<!-- <class-b>java.lang.String -->
+	<!-- </class-b> -->
+	<!-- <field> -->
+	<!-- <a>id</a> -->
+	<!-- <b>this</b> -->
+	<!-- </field> -->
+	<!-- </mapping> -->
+
+	<!-- <mapping map-null="false"> -->
+	<!-- <class-a>com.appschallenge.emergency.business.entity.RecepteursSituationPK -->
+	<!-- </class-a> -->
+	<!-- <class-b>com.appschallenge.emergency.business.dto.SituationDTO -->
+	<!-- </class-b> -->
+	<!-- <field> -->
+	<!-- <a>id</a> -->
+	<!-- <b>this</b> -->
+	<!-- </field> -->
+	<!-- </mapping> -->
 
 </mappings>

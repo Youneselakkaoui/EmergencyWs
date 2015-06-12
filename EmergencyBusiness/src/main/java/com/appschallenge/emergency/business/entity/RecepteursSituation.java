@@ -3,6 +3,7 @@ package com.appschallenge.emergency.business.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -35,14 +36,14 @@ public class RecepteursSituation implements Serializable {
 	private RecepteursSituationPK id;
 
 	// bi-directional many-to-one association to Situation
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_situation", insertable = false, updatable = false)
 	private Situation situation;
 
 	// bi-directional many-to-one association to User
-	@ManyToOne
-	@JoinColumn(name = "id_recepteur", insertable = false, updatable = false)
-	private User user;
+	// @ManyToOne
+	// @JoinColumn(name = "id_recepteur", insertable = false, updatable = false)
+	// private User user;
 
 	public RecepteursSituation() {
 	}
@@ -63,9 +64,9 @@ public class RecepteursSituation implements Serializable {
 		return this.situation;
 	}
 
-	public User getUser() {
-		return this.user;
-	}
+	// public User getUser() {
+	// return this.user;
+	// }
 
 	public void setDateCreation(final Date dateCreation) {
 		this.dateCreation = dateCreation;
@@ -83,8 +84,8 @@ public class RecepteursSituation implements Serializable {
 		this.situation = situation;
 	}
 
-	public void setUser(final User user) {
-		this.user = user;
-	}
+	// public void setUser(final User user) {
+	// this.user = user;
+	// }
 
 }

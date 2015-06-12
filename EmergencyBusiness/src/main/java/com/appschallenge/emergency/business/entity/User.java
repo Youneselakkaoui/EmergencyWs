@@ -48,8 +48,8 @@ public class User implements Serializable {
 
 	private String prenom;
 
-	@OneToMany(mappedBy = "user")
-	private List<RecepteursSituation> recepteursSituations;
+	// @OneToMany(mappedBy = "user")
+	// private List<RecepteursSituation> recepteursSituations;
 
 	private short sexe;
 
@@ -67,13 +67,13 @@ public class User implements Serializable {
 	}
 
 	// bi-directional many-to-one association to SuiviAlerte
-	public RecepteursSituation addRecepteursSituation(
-			final RecepteursSituation recepteursSituation) {
-		getRecepteursSituations().add(recepteursSituation);
-		recepteursSituation.setUser(this);
-
-		return recepteursSituation;
-	}
+	// public RecepteursSituation addRecepteursSituation(
+	// final RecepteursSituation recepteursSituation) {
+	// getRecepteursSituations().add(recepteursSituation);
+	// recepteursSituation.setUser(this);
+	//
+	// return recepteursSituation;
+	// }
 
 	public Situation addSituation(final Situation situation) {
 		getSituations().add(situation);
@@ -125,9 +125,9 @@ public class User implements Serializable {
 		return this.prenom;
 	}
 
-	public List<RecepteursSituation> getRecepteursSituations() {
-		return this.recepteursSituations;
-	}
+	// public List<RecepteursSituation> getRecepteursSituations() {
+	// return this.recepteursSituations;
+	// }
 
 	public short getSexe() {
 		return this.sexe;
@@ -145,13 +145,13 @@ public class User implements Serializable {
 		return this.telephone;
 	}
 
-	public RecepteursSituation removeRecepteursSituation(
-			final RecepteursSituation recepteursSituation) {
-		getRecepteursSituations().remove(recepteursSituation);
-		recepteursSituation.setUser(null);
-
-		return recepteursSituation;
-	}
+	// public RecepteursSituation removeRecepteursSituation(
+	// final RecepteursSituation recepteursSituation) {
+	// getRecepteursSituations().remove(recepteursSituation);
+	// recepteursSituation.setUser(null);
+	//
+	// return recepteursSituation;
+	// }
 
 	public Situation removeSituation(final Situation situation) {
 		getSituations().remove(situation);
@@ -203,10 +203,10 @@ public class User implements Serializable {
 		this.prenom = prenom;
 	}
 
-	public void setRecepteursSituations(
-			final List<RecepteursSituation> recepteursSituations) {
-		this.recepteursSituations = recepteursSituations;
-	}
+	// public void setRecepteursSituations(
+	// final List<RecepteursSituation> recepteursSituations) {
+	// this.recepteursSituations = recepteursSituations;
+	// }
 
 	public void setSexe(final short sexe) {
 		this.sexe = sexe;

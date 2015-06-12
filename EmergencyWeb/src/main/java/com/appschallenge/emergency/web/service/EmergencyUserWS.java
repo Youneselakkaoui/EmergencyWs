@@ -1,9 +1,11 @@
 package com.appschallenge.emergency.web.service;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +52,26 @@ public class EmergencyUserWS {
 			default:
 				throw new EmergencyException(EmergencyConstants.USRCREA0001);
 			}
+		} catch (final EmergencyException e) {
+			final EmergencyAnomalieDTO anomalie = new EmergencyAnomalieDTO();
+			anomalie.setCodeAnomalie(e.getExceptionCode());
+			anomalie.setLibelleAnomalie(e.getExceptionMessage());
+			manageUserOut.setAnomalie(anomalie);
+		}
+
+		return manageUserOut;
+	}
+
+	@GET
+	@Path("/findUser")
+	@Produces({ MediaType.APPLICATION_JSON })
+	public ManageUserOut manageUser(
+			@QueryParam("telephone") final String telephone) {
+		final ManageUserOut manageUserOut = new ManageUserOut();
+		try {
+
+			manageUserOut.setUserDTO(manageUserService.findUser(telephone));
+
 		} catch (final EmergencyException e) {
 			final EmergencyAnomalieDTO anomalie = new EmergencyAnomalieDTO();
 			anomalie.setCodeAnomalie(e.getExceptionCode());

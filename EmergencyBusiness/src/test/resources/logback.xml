@@ -12,7 +12,7 @@
       		<level>DEBUG</level>
     	</filter>                                      
 	    <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-	      <fileNamePattern>${directory}/mpp.%i.log.zip</fileNamePattern>
+	      <fileNamePattern>${directory}/emergency.%i.log.zip</fileNamePattern>
 	      <minIndex>1</minIndex>
 	      <maxIndex>20</maxIndex>
 	    </rollingPolicy>

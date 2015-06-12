@@ -47,18 +47,18 @@
 			<list>
 				<value>META-INF/mapping/UserMapper.xml
 				</value>
-				<value>META-INF/mapping/SuiviAlertePKMapper.xml
-				</value>
-				<value>META-INF/mapping/SuiviAlerteMapper.xml
-				</value>
-				<value>META-INF/mapping/SituationMapper.xml
-				</value>
-				<value>META-INF/mapping/RecepteursSituationPKMapper.xml
-				</value>
-				<value>META-INF/mapping/RecepteursSituationMapper.xml
-				</value>
-				<value>META-INF/mapping/PieceJointeMapper.xml
-				</value>
+<!-- 				<value>META-INF/mapping/SuiviAlertePKMapper.xml -->
+<!-- 				</value> -->
+<!-- 				<value>META-INF/mapping/SuiviAlerteMapper.xml -->
+<!-- 				</value> -->
+<!-- 				<value>META-INF/mapping/SituationMapper.xml -->
+<!-- 				</value> -->
+<!-- 				<value>META-INF/mapping/RecepteursSituationPKMapper.xml -->
+<!-- 				</value> -->
+<!-- 				<value>META-INF/mapping/RecepteursSituationMapper.xml -->
+<!-- 				</value> -->
+<!-- 				<value>META-INF/mapping/PieceJointeMapper.xml -->
+<!-- 				</value> -->
 				<value>META-INF/mapping/AlerteMapper.xml
 				</value>
 				<value>META-INF/mapping/ReceptAlerteMapper.xml
